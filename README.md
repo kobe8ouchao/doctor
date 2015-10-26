@@ -1,1 +1,87 @@
 # doctor
+API接口文档
+接口返回总格式：
+{
+    "status":0,
+    "message":"ok",
+    "results":{...}
+}
+status:0-表示成功,-1-表示失败.
+message: 返回接口信息.
+results:返回接口结果.
+
+1、获取posts表数据，按照时间倒排序，分页处理。
+参数:page_size,page_num
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[
+    	{
+            "p_id":"xxx",
+            "user_id":"xxx",
+            "title":"xxx",
+            "content":"xxx",
+            "flag":1,
+            "created":"yyyy-MM-dd HH:mm",
+            "user_name":"xxx",
+            "user_avatar":"xxx"
+        },
+        ...
+    ]
+}
+2、根据posts的p_id获取answers表数据列表，按照agrees数倒排序，分页处理。
+参数:p_id,page_size,page_num
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[
+    	{
+            "p_id":"xxx",
+            "user_id":"",
+            "title":"xxx",
+            "content":"xxx",
+            "agrees":1,
+            "created":"yyyy-MM-dd HH:mm",
+            "unagrees":"xxx",
+            "helps":"xxx"，
+            "user_avatar":"xxx",
+            "user_name":"xxx"，
+            "collections":"xxx"
+        },
+        ...
+    ]
+}
+3、添加posts数据
+参数:user_id,title,content,flag
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[]
+}
+4、添加answers数据
+参数:p_id,user_id,content,agrees,unagrees,helps,collections
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[]
+}
+5、添加usersfollows数据
+参数:from_id,to_id
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[]
+}
+6、添加usersfeed数据
+参数:from_id,to_id
+返回值：
+{
+    "status":0,
+    "message":"ok",
+    "results":[]
+}
